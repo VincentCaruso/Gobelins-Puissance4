@@ -1,0 +1,112 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  perspective: 800px;
+}
+
+.container {
+  width: 760px;
+  background-color: blue;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation-name: board;
+  animation-duration: 10s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+@keyframes board {
+  0% {
+    transform: rotateX(10deg) rotateY(-15deg);
+  }
+  100% {
+    transform: rotateX(10deg) rotateY(15deg);
+  }
+}
+
+.pion {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  transform: translate3d(0, 0, 1000px);
+}
+
+.top {
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.top:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.red {
+  background-color: red;
+}
+
+.endgame {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.endgame-text {
+  color: white;
+  font-size: 2rem;
+}
+
+.endgame-button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  color: black;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
